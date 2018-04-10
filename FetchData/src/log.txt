@@ -1,0 +1,152 @@
+Categoria "Física de plasma" con 53 paginas
+Category "Plasma physics" with 252 pages
+-----------------------------------------------------------------------------------
+Categoria "Semántica" con 67 paginas
+Category "Semantics" with 229 pages
+-----------------------------------------------------------------------------------
+Categoria "Criptografía" con 67 paginas
+Category "Cryptography" with 269 pages
+-----------------------------------------------------------------------------------
+Categoria "Estructura de las proteínas" con 52 paginas
+Category "Protein structure" with 189 pages
+-----------------------------------------------------------------------------------
+Categoria "Salsas" con 57 paginas
+Category "Sauces" with 119 pages
+-----------------------------------------------------------------------------------
+Categoria "Psicoterapia" con 51 paginas
+Category "Psychotherapy" with 218 pages
+-----------------------------------------------------------------------------------
+Categoria "Deportes de pelota" con 77 paginas
+Category "Ball games" with 231 pages
+-----------------------------------------------------------------------------------
+Categoria "Morfología vegetal" con 147 paginas
+Category "Plant morphology" with 260 pages
+-----------------------------------------------------------------------------------
+Categoria "Etología" con 87 paginas
+Category "Ethology" with 334 pages
+-----------------------------------------------------------------------------------
+Categoria "Software libre exclusivo para Windows" con 52 paginas
+Category "Windows-only free software" with 105 pages
+-----------------------------------------------------------------------------------
+Categoria "Historia del cine" con 53 paginas
+Category "History of film" with 170 pages
+-----------------------------------------------------------------------------------
+Categoria "Protocolos de Internet" con 84 paginas
+Category "Internet protocols" with 257 pages
+-----------------------------------------------------------------------------------
+Categoria "Videojuegos post-apocalípticos" con 126 paginas
+Category "Post-apocalyptic video games" with 304 pages
+-----------------------------------------------------------------------------------
+Categoria "Derecho romano" con 120 paginas
+Category "Roman law" with 269 pages
+-----------------------------------------------------------------------------------
+Categoria "Comercio electrónico" con 79 paginas
+Category "E-commerce" with 469 pages
+-----------------------------------------------------------------------------------
+Categoria "Arqueólogas" con 74 paginas
+Category "Women archaeologists" with 412 pages
+-----------------------------------------------------------------------------------
+Categoria "Términos de ajedrez" con 64 paginas
+Category "Chess terminology" with 99 pages
+-----------------------------------------------------------------------------------
+Categoria "Automóviles de las 24 Horas de Le Mans" con 82 paginas
+Category "24 Hours of Le Mans race cars" with 241 pages
+-----------------------------------------------------------------------------------
+Categoria "Selecciones de balonmano" con 74 paginas
+Category "National handball teams" with 113 pages
+-----------------------------------------------------------------------------------
+Categoria "Razas de gato" con 53 paginas
+Category "Cat breeds" with 103 pages
+-----------------------------------------------------------------------------------
+Categoria "Inteligencia artificial" con 58 paginas
+Category "Artificial intelligence" with 316 pages
+-----------------------------------------------------------------------------------
+Categoria "Razas caninas poco frecuentes" con 152 paginas
+Category "Rare dog breeds" with 192 pages
+-----------------------------------------------------------------------------------
+Categoria "Galaxias espirales" con 97 paginas
+Category "Spiral galaxies" with 205 pages
+-----------------------------------------------------------------------------------
+Categoria "Familias de aves" con 59 paginas
+Category "Bird families" with 196 pages
+-----------------------------------------------------------------------------------
+Categoria "Comida callejera" con 79 paginas
+Category "Street food" with 144 pages
+-----------------------------------------------------------------------------------
+Categoria "Aeronaves de Boeing" con 139 paginas
+Category "Boeing aircraft" with 162 pages
+-----------------------------------------------------------------------------------
+Categoria "Pan" con 67 paginas
+Category "Breads" with 131 pages
+-----------------------------------------------------------------------------------
+Categoria "Accidentes costeros y oceánicos" con 52 paginas
+Category "Coastal and oceanic landforms" with 100 pages
+-----------------------------------------------------------------------------------
+Categoria "Física atómica" con 65 paginas
+Category "Atomic physics" with 149 pages
+-----------------------------------------------------------------------------------
+Categoria "Enlace químico" con 92 paginas
+Category "Chemical bonding" with 156 pages
+-----------------------------------------------------------------------------------
+Categoria "Acústica" con 64 paginas
+Category "Acoustics" with 269 pages
+-----------------------------------------------------------------------------------
+Categoria "Magnitudes físicas" con 124 paginas
+Category "Physical quantities" with 239 pages
+-----------------------------------------------------------------------------------
+Categoria "Personajes tipo" con 52 paginas
+Category "Stock characters" with 146 pages
+-----------------------------------------------------------------------------------
+Categoria "Comportamiento humano" con 63 paginas
+Category "Human behavior" with 191 pages
+-----------------------------------------------------------------------------------
+Categoria "Represión política en la Unión Soviética" con 66 paginas
+Category "Political repression in the Soviet Union" with 169 pages
+-----------------------------------------------------------------------------------
+Categoria "Terminología musical" con 66 paginas
+Category "Musical terminology" with 162 pages
+-----------------------------------------------------------------------------------
+Categoria "Dinámica de fluidos" con 132 paginas
+Category "Fluid dynamics" with 482 pages
+-----------------------------------------------------------------------------------
+Categoria "Aerodinámica" con 71 paginas
+Category "Aerodynamics" with 221 pages
+-----------------------------------------------------------------------------------
+Categoria "Embalaje" con 52 paginas
+Category "Packaging" with 189 pages
+-----------------------------------------------------------------------------------
+Categoria "Compositores de ballet" con 104 paginas
+Category "Ballet composers" with 205 pages
+-----------------------------------------------------------------------------------
+Categoria "Papas santos" con 82 paginas
+Category "Papal saints" with 83 pages
+-----------------------------------------------------------------------------------
+Categoria "Enfermedades neurológicas" con 103 paginas
+Category "Neurological disorders" with 310 pages
+-----------------------------------------------------------------------------------
+Categoria "Aparato digestivo" con 80 paginas
+Category "Digestive system" with 165 pages
+-----------------------------------------------------------------------------------
+Categoria "Medicamento esencial de la Organización Mundial de la Salud" con 328 paginas
+Category "World Health Organization essential medicines" with 436 pages
+-----------------------------------------------------------------------------------
+Categoria "Franquismo" con 141 paginas
+Category "Francoist Spain" with 156 pages
+-----------------------------------------------------------------------------------
+Categoria "Yacimientos arqueológicos de Egipto" con 89 paginas
+Category "Archaeological sites in Egypt" with 146 pages
+-----------------------------------------------------------------------------------
+Categoria "Periódicos en español" con 212 paginas
+Category "Spanish-language newspapers" with 309 pages
+-----------------------------------------------------------------------------------
+Categoria "Alcoholes" con 159 paginas
+Category "Alcohols" with 492 pages
+-----------------------------------------------------------------------------------
+Categoria "Monedas fuera de curso" con 253 paginas
+Category "Modern obsolete currencies" with 450 pages
+-----------------------------------------------------------------------------------
+Categoria "Triplophysa" con 87 paginas
+Category "Triplophysa" with 95 pages
+-----------------------------------------------------------------------------------
+La media de articulos en espaniol es: 94
+Average pages in english is: 226
