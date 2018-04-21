@@ -46,5 +46,9 @@ Francoist Spain
 Archaeological sites in Egypt
 Spanish-language newspapers
 Alcohols
+<<<<<<< HEAD
 Impact craters on the Moon
+=======
+Modern obsolete currencies
+>>>>>>> branch 'master' of https://github.com/danick6/Topic_Models.git
 Triplophysa
