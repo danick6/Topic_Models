@@ -7,12 +7,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+
+import org.apache.commons.io.IOUtils;
+
 import com.google.gson.Gson;
 
 import category.Category;
 import category.Categorymember;
 import models.Article;
 
+/**
+ * @author daniel
+ *
+ */
 public class FetchDataServices {
 
 	// HTTP GET request
@@ -79,19 +86,24 @@ public class FetchDataServices {
 
 	// A partir de un identificador de un artículo, consigue el título del artículo en español
 	// Devuelve null si no existe el articulo en espaniol.
+	
+	/**
+	 * @param en_pageid - identificador de la pagina en ingles
+	 * @return String - titulo del articulo en espaniol, NULL si no existe.
+	 * @throws IOException
+	 */
 	public static String getEs_Title(int en_pageid) throws IOException{ 
 		String es_title = null;
 		String url_get = FetchDataConstants.en_endpoint + FetchDataConstants.langLinkEs + en_pageid;
-		//System.out.println("URL: "+ url_get);
-
+		
 		URL obj = new URL(url_get);
-
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
 		// GET
 		con.setRequestMethod("GET");
 		con.setRequestProperty("User-Agent", FetchDataConstants.USER_AGENT);
 		int responseCode = con.getResponseCode();
+		//System.out.println("URL: "+ url_get + "  -- Response: " +responseCode);
 		// Comprobacion de la respuesta.
 		if (responseCode == FetchDataConstants.OK){
 
@@ -100,12 +112,14 @@ public class FetchDataServices {
 			//System.out.println("Encoding es " +encoding);
 
 			// Conversion del contenido de la respuesta a String
-			String body = FetchDataUtils.getContent(in, encoding);
-			es_title = FetchDataUtils.getTitle(body);
-
+			encoding = encoding == null ? "UTF-8" : encoding;
+			String body = IOUtils.toString(in, encoding);
+			
 			// Se comprueba que existe la pagina en Español.
-			if (es_title == null){
+			if (body != null){
 				//System.err.println("Error: No se ha encontrado la pagina con id: "+en_pageid+ " en Español.");
+				body = FetchDataUtils.unescapeJava(body);
+				es_title = FetchDataUtils.getTitle(body);
 			}
 		}
 		return es_title;
@@ -145,12 +159,14 @@ public class FetchDataServices {
 		
 		// Comprobacion de la respuesta.
 		if (responseCode == FetchDataConstants.OK){
-
+			
+			// Conversion del contenido de la respuesta a String
 			InputStream in = con.getInputStream();
 			String encoding = con.getContentEncoding();
-
-			// Conversion del contenido de la respuesta a String
-			String body = FetchDataUtils.getContent(in, encoding);
+			encoding = encoding == null ? "UTF-8" : encoding;
+			String body = IOUtils.toString(in, encoding);
+			body = FetchDataUtils.unescapeJava(body);
+			
 			// Se localiza el campo "pageid" y se obtiene el identificador
 			if (body != null && body.contains("pageid\":")){
 				
@@ -170,6 +186,117 @@ public class FetchDataServices {
 			}
 		}
 		return categoryId;
+	}
+	
+	public static int getIdPage(String articleName, String language) throws IOException{
+		int categoryId = -1;
+		String url_get = "";
+
+		switch(language){
+		case "EN": 
+			url_get = FetchDataConstants.en_endpoint;
+			break;
+		case "ES":
+			url_get = FetchDataConstants.es_endpoint;
+			break;
+		default:
+			url_get = FetchDataConstants.en_endpoint;
+		}
+		
+		url_get += FetchDataConstants.articleId + FetchDataUtils.encode(articleName);
+		//System.out.println(url_get);
+
+		URL obj = new URL(url_get);
+
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		// GET
+		con.setRequestMethod("GET");
+		con.setRequestProperty("User-Agent", FetchDataConstants.USER_AGENT);
+		int responseCode = con.getResponseCode();
+		
+		// Comprobacion de la respuesta.
+		if (responseCode == FetchDataConstants.OK){
+			
+			// Conversion del contenido de la respuesta a String
+			InputStream in = con.getInputStream();
+			String encoding = con.getContentEncoding();
+			encoding = encoding == null ? "UTF-8" : encoding;
+			String body = IOUtils.toString(in, encoding);
+			body = FetchDataUtils.unescapeJava(body);
+			
+			// Se localiza el campo "pageid" y se obtiene el identificador
+			if (body != null && body.contains("pageid\":")){
+				
+				int start = body.indexOf("pageid\":")+8;
+				String id_num = "";
+
+				while(start > -1 && body.charAt(start) != ','){
+					id_num = id_num + body.charAt(start);
+					start++;
+				}
+				categoryId = Integer.parseInt(id_num);	
+			}
+
+			// Se comprueba que existe la pagina.
+			else {
+				System.out.println("Error: No se ha encontrado el identificador de la pagina: "+ articleName);
+			}
+		}
+		return categoryId;
+	}
+	
+	/**
+	 * @param articleName - Nombre del articulo, el nombre tiene que estar en el idioma que se desea
+	 * @param language - Idioma que se desea
+	 * @return String - Devuelve el texto del articulo en el idioma indicado
+	 */
+	public static String getArticle(String articleName, String language) throws IOException{ 
+		
+		String article = null;
+		String url_get = "";
+		
+		switch(language){
+		case "EN": 
+			url_get = FetchDataConstants.en_endpoint;
+			break;
+		case "ES":
+			url_get = FetchDataConstants.es_endpoint;
+			break;
+		default:
+			url_get = FetchDataConstants.en_endpoint;
+		}
+		url_get += FetchDataConstants.articleName + FetchDataUtils.encode(articleName);
+		//System.out.println("URL: "+ url_get);
+
+		URL obj = new URL(url_get);
+
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		// GET
+		con.setRequestMethod("GET");
+		con.setRequestProperty("User-Agent", FetchDataConstants.USER_AGENT);
+		int responseCode = con.getResponseCode();
+		// Comprobacion de la respuesta.
+		if (responseCode == FetchDataConstants.OK){
+			
+			// Conversion del contenido de la respuesta a String
+			InputStream in = con.getInputStream();
+			String encoding = con.getContentEncoding();
+			encoding = encoding == null ? "UTF-8" : encoding;
+			String body = IOUtils.toString(in, encoding);
+			
+			// Se obtiene el texto del articulo y se limpia el texto.
+			article = FetchDataUtils.getArticle(body);
+			if(article != null)
+				article = FetchDataUtils.cleanText(article);
+			
+			// Se comprueba que existe la pagina en Español.
+			if (article == null){
+				System.err.println("Error: No se ha encontrado la pagina: "+ articleName);
+			}
+		}
+		return article;
 	}
 
 }
