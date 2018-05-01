@@ -73,7 +73,7 @@ public class FetchData {
 								// Se comprueba que se han obtenido correctamente
 								if(en_id != -1 && es_id != -1){
 									
-									// Se prepara las para escribirlas en los ficheros.
+									// Se prepara las dos lineas para escribirlas en los ficheros.
 									String en_line = FetchDataUtils.csvLine(en_id, en_Title, en_categoryName, en_Article);
 									String es_line = FetchDataUtils.csvLine(es_id, es_Title, es_categoryName, es_Article);
 									//System.out.println(en_line);

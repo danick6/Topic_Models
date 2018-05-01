@@ -25,6 +25,11 @@ public final class FetchDataConstants {
 	public static final String articleName = "?action=query&format=json&prop=extracts&explaintext=true&titles=";
 	public static final String articleId = "?action=query&prop=info&format=json&titles=";
 	
+	// URL Topic Model Base URL
+	public static final String TM_ES_BaseURL = "lab4.librairy.linkeddata.es/dkaiwei-es-topics";
+	public static final String TM_EN_BaseURL = "lab4.librairy.linkeddata.es/dkaiwei-en-topics";
+	
+	
 	
 
 	
