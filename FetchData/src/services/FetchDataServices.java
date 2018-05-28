@@ -7,8 +7,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
@@ -106,12 +109,21 @@ public class FetchDataServices {
 		//System.out.println("URL: "+ url_get + "  -- Response: " +responseCode);
 		// Comprobacion de la respuesta.
 		if (responseCode == FetchDataConstants.OK){
+			
+			JSONObject jsonObject = FetchDataUtils.response2JSON(con.getInputStream());
+			
+			JSONArray array = jsonObject.getJSONObject("query").getJSONObject("pages").
+					getJSONObject(String.valueOf(en_pageid)).getJSONArray("langlinks");
+			
+			for(int i = 0; i < array.length(); i++){
+				String language = (String) array.getJSONObject(i).get("lang");
+				if(language.equals("es")){
+					//System.out.println("------------- " + a.getJSONObject(i).get("*"));
+					es_title = array.getJSONObject(i).getString("*");
+				}
+			}
 
-			InputStream in = con.getInputStream();
-			String encoding = con.getContentEncoding();
-			//System.out.println("Encoding es " +encoding);
-
-			// Conversion del contenido de la respuesta a String
+			/*// Conversion del contenido de la respuesta a String
 			encoding = encoding == null ? "UTF-8" : encoding;
 			String body = IOUtils.toString(in, encoding);
 			
@@ -120,7 +132,7 @@ public class FetchDataServices {
 				//System.err.println("Error: No se ha encontrado la pagina con id: "+en_pageid+ " en Español.");
 				body = FetchDataUtils.unescapeJava(body);
 				es_title = FetchDataUtils.getTitle(body);
-			}
+			}*/
 		}
 		return es_title;
 	}
@@ -160,10 +172,25 @@ public class FetchDataServices {
 		// Comprobacion de la respuesta.
 		if (responseCode == FetchDataConstants.OK){
 			
-			// Conversion del contenido de la respuesta a String
-			InputStream in = con.getInputStream();
-			String encoding = con.getContentEncoding();
-			encoding = encoding == null ? "UTF-8" : encoding;
+			JSONObject jsonObject = FetchDataUtils.response2JSON(con.getInputStream());
+			//System.out.println(jsonObject.toString(2));
+			System.out.println(jsonObject.getJSONObject("query").getJSONObject("pages").toString(2));
+			
+			JSONObject jsonResponse = jsonObject.getJSONObject("query").getJSONObject("pages");
+			
+			@SuppressWarnings("unchecked")
+			Iterator<String> iter = jsonResponse.keys();
+			
+			while (iter.hasNext()) {
+		        String key = iter.next();
+		        JSONObject page = jsonResponse.getJSONObject(key); 
+		        if (page.has("pageid") && page.has("title") 
+		        		&& page.getString("title").replace("Category:", "").equals(category_name)) {
+		            categoryId = page.getInt("pageid");
+		        }
+		    }
+			
+			/*encoding = encoding == null ? "UTF-8" : encoding;
 			String body = IOUtils.toString(in, encoding);
 			body = FetchDataUtils.unescapeJava(body);
 			
@@ -177,14 +204,13 @@ public class FetchDataServices {
 					id_num = id_num + body.charAt(start);
 					start++;
 				}
-				categoryId = Integer.parseInt(id_num);	
+				categoryId = Integer.parseInt(id_num);*/	
 			}
 
 			// Se comprueba que existe la pagina en Español.
 			else {
 				System.err.println("Error: No se ha encontrado el identificador de la pagina: "+ category_name);
 			}
-		}
 		return categoryId;
 	}
 	

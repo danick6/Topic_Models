@@ -6,8 +6,6 @@ import java.io.FileWriter;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
-import org.apache.commons.io.FileUtils;
-
 import models.Article;
 import services.FetchDataConstants;
 import services.FetchDataServices;
@@ -199,6 +197,8 @@ public class FetchData {
 		//System.out.println(FetchDataUtils.cleanText(body8));
 		
 		System.out.println(FetchDataUtils.removeCitas(body9));*/
+		
+		//System.out.println(FetchDataServices.getCategoryId("Ethology"));
 
 	}
 

@@ -1,8 +1,12 @@
 package services;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import org.json.JSONObject;
 
 public class FetchDataUtils {
 	private static final String VALUES = "!#$&'()*+,/:;=?@[] \"%-.<>\\^_`{|}~";
@@ -229,4 +233,16 @@ public class FetchDataUtils {
 	public static boolean isNumeric(String s) {  
 	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
 	}  
+	
+	public static JSONObject response2JSON(InputStream response) throws IOException{
+		BufferedReader in = new BufferedReader(new InputStreamReader(response));
+        String inputLine;
+        StringBuffer responseBuffer = new StringBuffer();
+        while ((inputLine = in.readLine()) != null)
+        	responseBuffer.append(inputLine);
+        in.close();
+        
+		JSONObject responseJson = new JSONObject(responseBuffer.toString());
+		return responseJson;
+	}
 }
